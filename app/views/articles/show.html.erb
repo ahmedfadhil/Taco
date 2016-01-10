@@ -1,37 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
+<h1>Show An Article</h1>
 
-<div class="container">
-  <div class="jumbotron">
+<p>
+  Title: <%= @article.title %>
+</p>
 
-    <h1>Show An Article</h1>
+<p>
+  Author: <%= @article.author %>
 
-    <p>
-      Title: <%= @article.title %>
-    </p>
+</p>
 
-    <p>
-      Author: <%= @article.author %>
-
-    </p>
-
-    <p>
-      Description: <%= @article.description %>
-    </p>
-  </div>
-</div>
+<p>
+  Description: <%= @article.description %>
+</p>
 <%= link_to "Edit this article", edit_article_path(@article) %> |
 <%= link_to "Back to articles", articles_path %>
 
-
-</body>
-</html>
