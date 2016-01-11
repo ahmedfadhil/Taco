@@ -1,22 +1,18 @@
-<div class="container">
-<h1>Show An Article</h1>
+<h2 align="center">Title: <%= @article.title %></h2>
+<div class="well col-xs-8 col-xs-offset-2">
+  <h4 class="center"><strong>Author:</strong></h4>
+  <hr>
+  <%= @article.author %>
+</div>
+<div class="well col-xs-8 col-xs-offset-2">
+  <h4 class="center description"><strong>Description:</strong></h4>
+  <hr>
+  <%= simple_format(@article.description) %>
+  <div class="article-actions">
 
-<p>
-  Title: <%= @article.title %>
-</p>
+    <%= link_to "View Articles", articles_path, class: "btn btn-xs btn-success" %>
+    <%= link_to "Delete Article", articles_path(@article), method: :delete, data: {confirm: "Delete Article ?"}, class: "btn btn-xs btn-danger" %>
 
-<p>
-  Author: <%= @article.author %>
-
-</p>
-
-<p>
-  Description: <%= @article.description %>
-</p>
-  <div class="btn btn-info btn-sm"><span class="glyphicon glyphicon-step-backward"></span><%= link_to "Back to Articles",
-                                                                                                      articles_path
-  %></div>
-  <div class="btn btn-info btn-sm"><span class="glyphicon glyphicon-edit"></span><%= link_to "Edit Article",
-                                                                                            edit_article_path(@article) %></div>
-
+    <%= link_to "Edit Article", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
   </div>
+</div>

@@ -1,40 +1,33 @@
-<div class="container">
 
-  <h1>List of Articles</h1><br/>
-  <div class="btn btn-info btn-lg">
+  <h1 align="center">List All Articles</h1>
+  <div class="btn btn-info btn-lg col-xs-offset-2">
     <span class="glyphicon glyphicon-pencil "><%= link_to "Create Article", new_article_path %></span>
   </div>
-  <br/>
-<div class="container">
-  <table>
+  <% @articles.each do |article| %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+        <div class="article-title">
+         Article by:  <%= link_to article.title, article_path(article) %>
+        </div>
+        <div class="article-title">
+          <%= link_to article.author%>
+          </div>
+        <div class="article-body">
+          <%= link_to truncate(article.description,length:100)  %>
+        </div>
+        <div class="article-actions">
 
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Description</th>
-    </tr>
-    <% @articles.each do |article| %>
-        <tr>
-          <td><%= article.title %></td>
-          <td><%= article.author %></td>
-          <td><%= article.description %></td>
-          <td class="btn btn-info btn-md">
-            <span class="glyphicon glyphicon-ok"></span><%= link_to " Show", article_path(article) %></td>
-          <td class="btn btn-info btn-md">
-            <span class="glyphicon glyphicon-edit"></span><%= link_to " Edit", edit_article_path(article) %></td>
+          <%= link_to "View Articles", articles_path, class: "btn btn-xs btn-success" %>
+          <%= link_to "Delete Article", articles_path(article), method: :delete, data: {confirm: "Delete Article ?"}, class: "btn btn-xs btn-danger" %>
+
+          <%= link_to "Edit Article", edit_article_path(article), class: "btn btn-xs btn-primary" %>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  <%end %>
 
 
-          <td class="btn btn-info btn-md"><span class="glyphicon glyphicon-trash"></span><%= link_to " Delete",
-                                                                                                     article_path(article), method: :delete, data:
-                                                                                                         {confirm: 'Are you sure ?'} %>
-          </td>
-        </tr>
-    <% end %>
 
-  </table>
-</div>
-  <ul class="pager">
-    <li><a href="#">Previous</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
-</div>
