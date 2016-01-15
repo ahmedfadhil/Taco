@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   resources :articles
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
-
+  # to create a session
+get 'login', to:'sessions#new'
+  # to login to using the session
+ post'login', to:'sessions#create'
+  # to logout and destroy the session
+delete'logout', to:'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
