@@ -15,13 +15,13 @@
           <div class="article-body">
             <%= link_to truncate(article.description, length: 100) %>
             <div class="article-meta-details">
-              <small>Create By: <%= article.user.username %>,<%= time_ago_in_words(article.created_at) %>, ago
+              <small>Create By: <%= article.user.username%>, <%= time_ago_in_words(article.created_at) %>, ago
                 Last updated: <%= time_ago_in_words(article.updated_at) %> ago
               </small>
             </div>
           </div>
           <div class="article-actions">
-            <%if logged_in? && current_user == article.user %>
+            <%if logged_in? && (current_user == article.user || current_user.admin?)%>
 
             <%= link_to "View Articles", articles_path, class: "btn btn-xs btn-success" %>
             <%= link_to "Delete Article", article_path(article), method: :delete, data: {confirm: "Delete Article ?"}, class: "btn btn-xs btn-danger" %>

@@ -47,12 +47,14 @@
               <ul class="dropdown-menu">
 
                 <li align="center"> <%= link_to gravatar_for(current_user) %></li>
+                <li align="center"><%= "(Administrator)" if current_user.admin?%></li>
+
                 <li align="center"> <%= link_to current_user.username %></li>
                 <li align="center"> <%= link_to current_user.email %></li>
                 <br/>
                 <li align="center"> <%= link_to ' View', user_path(current_user), class: "glyphicon glyphicon-th-list" %></li>
                 <li align="center"> <%= link_to ' Edit', edit_user_path(current_user), class: "glyphicon glyphicon-edit" %></li>
-                <hr/>
+                <li role="separator" class="divider"></li>
                 <li align="center"><%= link_to ' Logout', logout_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
               </ul>
             </li>
