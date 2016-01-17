@@ -8,10 +8,9 @@ gem 'bcrypt', '~> 3.1.10'
 
 # Bootstrap rails
 gem 'bootstrap-sass', '~> 3.3.6'
-# Pagination
-gem 'will_paginate', '~> 3.0.7'
-
-gem 'will_paginate-bootstrap', '~> 1.0.0'
+# gem will paginate for pagination
+gem 'will_paginate', '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
