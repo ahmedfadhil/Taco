@@ -39,7 +39,6 @@ $navbar-default-bg: #088DA5;
   font-weight: bold;
 }
 
-
 .btn-xlarge {
   font-size: 1.7em;
   background-color: #003366;
@@ -65,23 +64,38 @@ $navbar-default-bg: #088DA5;
   padding-top: 15px;
   padding-bottom: 15px;
 }
-.article-meta-details{
+
+.article-meta-details {
   border-top: 1px solid #eaeaea;
   margin-top: 15px;
 }
-.listing{
+
+.listing {
   list-style: none;
   padding-left: 0;
 }
-.right-links{
+
+.right-links {
   background-color: #088DA5;
   background-size: cover;
   color: #FFFFFF;
 
+}
+
+.dropdown-menu {
+  font-size: medium;
+}
+
+.label-info {
+  background-color: #CEF6F5;
+  text-transform: uppercase;
+  letter-spacing: -1 px;
+  font-weight: bold;
 
 }
-.dropdown-menu{
-  font-size: medium;
+
+.input_checkbox input {
+  width: auto !important;
 }
 
 footer {

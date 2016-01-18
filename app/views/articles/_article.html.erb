@@ -1,4 +1,3 @@
-
 <div class="btn btn-info btn-lg col-xs-offset-2">
   <span class="glyphicon glyphicon-pencil "><%= link_to "Create Article", new_article_path %></span>
 </div>
@@ -21,13 +20,17 @@
             </div>
           </div>
           <div class="article-actions">
-            <%if logged_in? && (current_user == article.user || current_user.admin?)%>
+            <% if article.categories.any? %>
+                <p>Categories: <%= render article.categories %></p>
+            <% end %>
 
-            <%= link_to "View Articles", articles_path, class: "btn btn-xs btn-success" %>
-            <%= link_to "Delete Article", article_path(article), method: :delete, data: {confirm: "Delete Article ?"}, class: "btn btn-xs btn-danger" %>
+            <% if logged_in? && (current_user == article.user || current_user.admin?) %>
 
-            <%= link_to "Edit Article", edit_article_path(article), class: "btn btn-xs btn-primary" %>
-                <%end %>
+                <%= link_to "View Articles", articles_path, class: "btn btn-xs btn-success" %>
+                <%= link_to "Delete Article", article_path(article), method: :delete, data: {confirm: "Delete Article ?"}, class: "btn btn-xs btn-danger" %>
+
+                <%= link_to "Edit Article", edit_article_path(article), class: "btn btn-xs btn-primary" %>
+            <% end %>
           </div>
 
         </div>
