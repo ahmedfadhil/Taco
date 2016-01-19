@@ -11,8 +11,23 @@
             <li>
               <small><%= pluralize(category.articles.count, "articles") %></small>
             </li>
+
           </div>
+          <% if logged_in? and current_user.admin? %>
+              <div class="row" align="left">
+                <ul>
+                  <li> <%= link_to "View Category", edit_category_path(category), class: "btn btn-xs btn-success" %></li>
+
+                  <li> <%= link_to "Edit Category", edit_category_path(category), class: "btn btn-xs btn-primary" %></li>
+
+                  <li>  <%= link_to "Delete Category", edit_category_path(category), class: "btn btn-xs btn-danger" %></li>
+                </ul>
+              </div>
+          <% end %>
+
         </div>
+
+
       </ul>
   <% end %>
   <%= will_paginate %>
